@@ -128,12 +128,4 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
 7.  **Chat History Update**:
     -   The user's question and the AI's full response are added to the session's chat history for future interactions.
 
-## 📂 Project Structure 
-.
-├── .env # Environment variables (API keys, etc.) - DO NOT COMMIT
-├── web_app.py # Main Streamlit application file
-├── app.py # Original command-line interface (optional)
-├── main.ipynb # Jupyter Notebook for development/testing (optional) 
-├── requirements.txt # Python dependencies
-└── README.md # This file
 
