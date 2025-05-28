@@ -1,0 +1,13 @@
+streamlit
+langchain-groq
+langchain-pinecone
+langchain-community
+langchain
+langchain-text_splitters
+langchain-huggingface
+google-generativeai
+google-genai 
+pinecone-client
+pinecone
+ipykernel
+transformers
