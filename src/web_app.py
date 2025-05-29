@@ -68,7 +68,7 @@ def get_rag_components():
         model="gemini-1.5-flash-latest",
         temperature=0.1,
         max_tokens=1024,
-        google_api_key=os.getenv("GOOGLE_API_KEY"), # Corrected to use GOOGLE_API_KEY
+        google_api_key=os.getenv("GOOGLE_API_KEY"), 
         streaming=True
     )
 
