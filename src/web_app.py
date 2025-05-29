@@ -65,7 +65,7 @@ def get_rag_components():
     # Initialize LLM
     # Use a known valid model name, e.g., "gemini-1.5-flash-latest" or "gemini-pro"
     llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash-latest",
+        model="gemini-2.0-flash-001",
         temperature=0.1,
         max_tokens=1024,
         google_api_key=os.getenv("GOOGLE_API_KEY"), 
