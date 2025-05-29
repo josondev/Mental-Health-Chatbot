@@ -117,7 +117,6 @@ def ask_question_streamed(user_question, current_chat_history):
     print("AI: ", end="")
     
     full_ai_response = ""
-    # Use .stream() to get chunks of the response
     for chunk in rag_chain.stream({
         "input": user_question,
         "chat_history": current_chat_history,
