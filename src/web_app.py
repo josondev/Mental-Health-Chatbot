@@ -30,7 +30,7 @@ def get_rag_components():
     embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     
     # Pinecone Index
-    index_name = os.getenv("PINECONE_INDEX_NAME", "medical-chatbot")
+    index_name = "medical-chatbot"
     
     existing_indexes = [index_info["name"] for index_info in pc.list_indexes()]
     if index_name not in existing_indexes:
