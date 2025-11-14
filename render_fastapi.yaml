@@ -3,7 +3,7 @@ services:
     name: ai-detector-fastapi
     env: python
     buildCommand: pip install -r requirements_fastapi.txt
-    startCommand: uvicorn fastapi_app:app --host 0.0.0.0 --port $PORT
+    startCommand: uvicorn chatbot_api:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
