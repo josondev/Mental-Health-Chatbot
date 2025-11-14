@@ -53,19 +53,27 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
 3.  **Install dependencies:**
     The `requirements.txt` file should include:
     ```
+        # Web Framework
     fastapi==0.115.0
     uvicorn[standard]==0.32.0
-    pydantic==2.9.2
+    
+    # Core Dependencies
+    pydantic>=2.11.1
     python-dotenv==1.0.0
-    langchain==0.3.0
-    langchain-pinecone==0.2.0
-    langchain-community==0.3.0
-    langchain-huggingface==0.1.0
-    langchain-google-genai==2.0.0
-    google-generativeai==0.8.0
-    pinecone-client==5.0.0
-    transformers==4.45.0
-    sentence-transformers==3.1.0
+    
+    # LangChain
+    langchain==0.3.7
+    langchain-community==0.3.7
+    langchain-pinecone==0.2.13
+    langchain-huggingface==0.1.2
+    langchain-google-genai==2.0.4
+    
+    # AI/ML
+    google-generativeai==0.8.3
+    pinecone-client==5.0.1
+    transformers==4.46.3
+    sentence-transformers==3.3.1
+
     ```
     Install them using:
     ```
