@@ -97,13 +97,18 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
 
 ### Running the Application
 
-1.  **Run the Streamlit web application (`web_app.py` [4]):**
+1.  **Run the Streamlit web application (`web_app.py`):**
     ```
     streamlit run web_app.py
     ```
     This will start the Streamlit server, and you can interact with the chatbot in your web browser.
 
-2.  **Alternative: Run the command-line interface (`app.py` [1]):**
+2.  **We have a deployed version. Do check it out.**
+   ```
+    https://ugdn3lpnkustehfxu28cbe.streamlit.app/
+   ```    
+
+3. **Alternative: Run the command-line interface After navigating in the correct directory(`app.py`):**
     If you prefer a command-line version (as initially developed):
     ```
     python app.py
