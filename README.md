@@ -104,9 +104,9 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
     This will start the Streamlit server, and you can interact with the chatbot in your web browser.
 
 2.  **We have a deployed version. Do check it out.**
-   ```
+    ```
     https://ugdn3lpnkustehfxu28cbe.streamlit.app/
-   ```    
+    ```    
 
 3. **Alternative: Run the command-line interface After navigating in the correct directory(`app.py`):**
     If you prefer a command-line version (as initially developed):
