@@ -53,21 +53,24 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
 3.  **Install dependencies:**
     The `requirements.txt` file should include:
     ```
-    streamlit
-    langchain
-    langchain-google-genai
-    langchain-pinecone
-    langchain-huggingface
-    pinecone-client
-    python-dotenv
-    transformers # Often a dependency for sentence-transformers
-    sentence-transformers # If HuggingFaceEmbeddings needs it explicitly
+    fastapi==0.115.0
+    uvicorn[standard]==0.32.0
+    pydantic==2.9.2
+    python-dotenv==1.0.0
+    langchain==0.3.0
+    langchain-pinecone==0.2.0
+    langchain-community==0.3.0
+    langchain-huggingface==0.1.0
+    langchain-google-genai==2.0.0
+    google-generativeai==0.8.0
+    pinecone-client==5.0.0
+    transformers==4.45.0
+    sentence-transformers==3.1.0
     ```
     Install them using:
     ```
     pip install -r requirements.txt
     ```
-    *(Based on your `requirements.txt` [3], you might also have `langchain-groq`, `langchain-community`, `langchain-text_splitters`, `google-genai`, `ipykernel`. Ensure all necessary ones are included.)*
 
 4.  **Set up environment variables:**
     Create a `.env` file in the root directory of the project and add your API keys and Pinecone configuration:
