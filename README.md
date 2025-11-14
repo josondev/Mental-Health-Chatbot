@@ -53,7 +53,7 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
 3.  **Install dependencies:**
     The `requirements.txt` file should include:
     ```
-        # Web Framework
+    # Web Framework
     fastapi==0.115.0
     uvicorn[standard]==0.32.0
     
@@ -87,8 +87,8 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
     PINECONE_API_KEY="your_pinecone_api_key"
     PINECONE_CLOUD="your_pinecone_cloud_provider" # e.g., aws, gcp, azure
     PINECONE_REGION="your_pinecone_region"       # e.g., us-east-1
-    PINECONE_INDEX_NAME="medical-chatbot"        # Or your preferred index name
-    # HF_TOKEN="your_huggingface_token" # Usually not needed for public models like all-MiniLM-L6-v2
+    PINECONE_INDEX_NAME="medical-chatbot"        
+    # HF_TOKEN="your_huggingface_token" 
     ```
 
 ### Data Preparation (If applicable)
