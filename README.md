@@ -88,12 +88,12 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
     PINECONE_CLOUD="your_pinecone_cloud_provider" # e.g., aws, gcp, azure
     PINECONE_REGION="your_pinecone_region"       # e.g., us-east-1
     PINECONE_INDEX_NAME="medical-chatbot"        
-    # HF_TOKEN="your_huggingface_token" 
+    HF_TOKEN="your_huggingface_token" 
     ```
 
 ### Data Preparation (If applicable)
 
--   If you have a dataset of mental health questions and answers, you'll need to process and upsert them into your Pinecone index (`PINECONE_INDEX_NAME`). The embeddings should be generated using `all-MiniLM-L6-v2`. This project currently assumes the data is already in Pinecone or the index is ready to be populated.
+-   If you have a dataset of mental health questions and answers, you'll need to process and upsert them into your Pinecone index (`PINECONE_INDEX_NAME`). The embeddings should be generated using `all-MiniLM-L6-v2`. This project currently assumes the pinecone index is ready to be populated/upserted with Data.
 
 ### Running the Application
 
@@ -105,7 +105,7 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
 
 2.  **We have a deployed version. Do check it out.**
     ```
-    https://ugdn3lpnkustehfxu28cbe.streamlit.app/
+    https://mental-health-01.streamlit.app/
     ```    
 
 3. **Alternative: Run the command-line interface After navigating in the correct directory(`app.py`):**
@@ -132,7 +132,7 @@ This project implements a conversational Retrieval Augmented Generation (RAG) ch
     -   It uses the LLM to rephrase the user's question into a standalone query, understandable without the full chat context. This is crucial for accurate retrieval in follow-up questions.
 
 4.  **Document Retrieval**:
-    -   The rephrased query is used by the `PineconeVectorStore` retriever to fetch the top `k` most semantically similar documents (your Q&A data) from the Pinecone index.
+    -   The rephrased query is used by the `PineconeVectorStore` retriever to fetch the top `k` most semantically similar documents using cosine Similarity Metric (your Q&A data) from the Pinecone index.
 
 5.  **Answer Generation**:
     -   The `create_stuff_documents_chain` takes the original user question, the chat history, and the retrieved documents (context).
