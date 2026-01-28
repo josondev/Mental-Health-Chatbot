@@ -32,7 +32,7 @@ st.markdown("""
     
     /* Fix chat message width */
     .stChatMessage {
-        background-color: blue;
+        background-color: black;
         border-radius: 10px;
         padding: 1rem;
         margin: 0.5rem 0;
