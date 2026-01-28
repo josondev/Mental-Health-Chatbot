@@ -87,7 +87,7 @@ def initialize_chatbot():
 
         # Initialize LLM
         llm = ChatGoogleGenerativeAI(
-            model="gemini-3-flash-preview",
+            model="gemini-2.0-flash-exp",
             temperature=0.1,
             max_tokens=1024,
             api_key=google_key,
