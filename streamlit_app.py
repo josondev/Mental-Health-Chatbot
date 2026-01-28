@@ -75,7 +75,7 @@ st.markdown("""
         }
     }
 </style>
-""")
+""",unsafe_allow_html = True)
 
 # Initialize session state
 if "messages" not in st.session_state:
