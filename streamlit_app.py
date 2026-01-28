@@ -17,19 +17,52 @@ st.set_page_config(
 )
 
 # Custom CSS
+# Custom CSS - Mobile Friendly
 st.markdown("""
 <style>
+    /* Main app background */
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
+    
+    /* Main content area */
     .main > div {
-        padding-top: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
+    
+    /* Chat messages - better visibility */
     .stChatMessage {
-        background-color: white;
-        border-radius: 10px;
-        padding: 1rem;
-        margin: 0.5rem 0;
+        background-color: white !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+        margin: 0.5rem 0 !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Ensure chat container is visible */
+    [data-testid="stChatMessageContainer"] {
+        background-color: transparent !important;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .main > div {
+            padding: 0.5rem !important;
+        }
+        .stChatMessage {
+            padding: 0.75rem !important;
+            margin: 0.3rem 0 !important;
+        }
+        /* Fix for mobile viewport */
+        .stApp {
+            min-height: 100vh;
+        }
+    }
+    
+    /* Chat input area */
+    [data-testid="stChatInput"] {
+        background-color: white !important;
     }
 </style>
 """, unsafe_allow_html=True)
