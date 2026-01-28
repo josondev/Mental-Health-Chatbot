@@ -17,21 +17,20 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS
 st.markdown("""
 <style>
-    /* Main app background */
+    /* Remove default padding and set background */
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
     
-    /* Main content area */
-    .main > div {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+    /* Target the main content block */
+    section.main > div {
+        max-width: 100%;
+        padding: 1rem;
     }
     
-    /* Chat messages - better visibility */
+    /* Fix chat message width */
     .stChatMessage {
         background-color: white;
         border-radius: 10px;
@@ -40,34 +39,39 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
-    /* Chat input area */
+    /* Chat input styling */
     [data-testid="stChatInput"] {
         background-color: white;
     }
     
-    /* Mobile responsiveness */
+    /* Mobile specific fixes */
     @media (max-width: 768px) {
-        .main > div {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+        /* Critical: Override Streamlit's default container width */
+        section.main > div {
+            padding: 0.5rem !important;
         }
+        
+        /* Force chat messages to be narrower */
         .stChatMessage {
-            padding: 0.75rem;
-            margin: 0.3rem 0;
-            font-size: 0.9rem;
+            padding: 0.5rem !important;
+            margin: 0.25rem 0 !important;
+            font-size: 14px;
         }
-        /* Ensure proper viewport height */
-        .stApp {
-            min-height: 100vh;
-            min-height: -webkit-fill-available;
+        
+        /* Fix the message content width */
+        .stChatMessage > div {
+            max-width: 100%;
         }
-    }
-    
-    /* Improve touch targets for mobile */
-    @media (max-width: 768px) {
-        button {
-            min-height: 44px;
-            min-width: 44px;
+        
+        /* Prevent horizontal overflow */
+        .main, .stApp, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+        }
+        
+        /* Make chat input smaller */
+        [data-testid="stChatInput"] > div {
+            padding: 0.5rem;
         }
     }
 </style>
