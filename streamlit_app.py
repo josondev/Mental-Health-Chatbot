@@ -42,7 +42,7 @@ st.markdown("""
     
     /* Chat input styling */
     [data-testid="stChatInput"] {
-        background-color: white;
+        background-color: gray;
     }
     
     /* Mobile specific fixes */
