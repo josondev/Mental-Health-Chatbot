@@ -19,15 +19,7 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    /* Import Google Font */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    
-    /* Apply font globally */
-    html, body, [class*="css"], * {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    }
-    
-    /* Background - adapts to theme */
+    /* Remove default padding and set background */
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
@@ -38,157 +30,17 @@ st.markdown("""
         padding: 1rem;
     }
     
-    /* Title styling - use theme-aware colors */
-    h1 {
-        font-weight: 700 !important;
-        letter-spacing: -0.5px;
-        color: #ffffff !important;
-    }
-    
-    /* Caption styling */
-    .stCaption {
-        font-weight: 400 !important;
-        color: rgba(255, 255, 255, 0.9) !important;
-    }
-    
-    /* Chat messages - Light mode */
-    @media (prefers-color-scheme: light) {
-        [data-testid="stChatMessage"] {
-            background-color: rgba(255, 255, 255, 0.95) !important;
-            color: #1f2937 !important;
-        }
-        
-        [data-testid="stChatMessage"] p,
-        [data-testid="stChatMessage"] div,
-        [data-testid="stChatMessage"] li,
-        [data-testid="stChatMessage"] span,
-        [data-testid="stChatMessage"] strong {
-            color: #1f2937 !important;
-        }
-    }
-    
-    /* Chat messages - Dark mode */
-    @media (prefers-color-scheme: dark) {
-        [data-testid="stChatMessage"] {
-            background-color: rgba(45, 55, 72, 0.95) !important;
-            color: #f7fafc !important;
-        }
-        
-        [data-testid="stChatMessage"] p,
-        [data-testid="stChatMessage"] div,
-        [data-testid="stChatMessage"] li,
-        [data-testid="stChatMessage"] span,
-        [data-testid="stChatMessage"] strong {
-            color: #f7fafc !important;
-        }
-    }
-    
-    /* Common chat message styling */
-    [data-testid="stChatMessage"] {
-        border-radius: 10px;
-        padding: 1rem;
-        margin: 0.5rem 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        font-weight: 400;
-    }
-    
+    /* Fix chat message width */
     .stChatMessage {
+        background-color: black;
         border-radius: 10px;
         padding: 1rem;
         margin: 0.5rem 0;
+        color: "white"
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        font-weight: 400;
-    }
-    
-    /* Chat input - Light mode */
-    @media (prefers-color-scheme: light) {
-        [data-testid="stChatInput"] {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        
-        [data-testid="stChatInput"] input {
-            color: #1f2937 !important;
-        }
-        
-        [data-testid="stChatInput"] input::placeholder {
-            color: rgba(31, 41, 55, 0.6) !important;
-        }
-    }
-    
-    /* Chat input - Dark mode */
-    @media (prefers-color-scheme: dark) {
-        [data-testid="stChatInput"] {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        
-        [data-testid="stChatInput"] input {
-            color: #ffffff !important;
-        }
-        
-        [data-testid="stChatInput"] input::placeholder {
-            color: rgba(255, 255, 255, 0.5) !important;
-        }
-    }
-    
-    [data-testid="stChatInput"] input {
-        font-weight: 400;
-    }
-    
-    /* Sidebar styling */
-    [data-testid="stSidebar"] {
-        background-color: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-    }
-    
-    [data-testid="stSidebar"] * {
-        color: #ffffff !important;
-    }
-    
-    /* Button styling */
-    .stButton button {
-        font-weight: 500;
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #ffffff !important;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    
-    .stButton button:hover {
-        background-color: rgba(255, 255, 255, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-    
-    /* Divider styling */
-    hr {
-        border-color: rgba(255, 255, 255, 0.2) !important;
-    }
-    
-    /* Mobile specific fixes */
-    @media (max-width: 768px) {
-        section.main > div {
-            padding: 0.5rem !important;
-        }
-        
-        .stChatMessage, [data-testid="stChatMessage"] {
-            padding: 0.5rem !important;
-            margin: 0.25rem 0 !important;
-            font-size: 14px;
-        }
-        
-        .stChatMessage > div {
-            max-width: 100%;
-        }
-        
-        .main, .stApp, body {
-            overflow-x: hidden !important;
-            max-width: 100vw !important;
-        }
-        
-        [data-testid="stChatInput"] > div {
-            padding: 0.5rem;
-        }
     }
 </style>
-""", unsafe_allow_html=True)
+""",unsafe_allow_html = True)
 
 # Initialize session state
 if "messages" not in st.session_state:
