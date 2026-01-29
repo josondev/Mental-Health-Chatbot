@@ -19,6 +19,14 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+    /* Import Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    /* Apply font globally */
+    html, body, [class*="css"], * {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    }
+    
     /* Remove default padding and set background */
     .stApp {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -30,19 +38,45 @@ st.markdown("""
         padding: 1rem;
     }
     
+    /* Title styling */
+    h1 {
+        font-weight: 700 !important;
+        letter-spacing: -0.5px;
+    }
+    
+    /* Caption styling */
+    .stCaption {
+        font-weight: 400 !important;
+    }
+    
     /* Fix chat message width */
     .stChatMessage {
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.7);
         border-radius: 10px;
         padding: 1rem;
         margin: 0.5rem 0;
-        color: "white"
+        color: white;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 400;
     }
     
     /* Chat input styling */
     [data-testid="stChatInput"] {
-        background-color: gray;
+        background-color: rgba(128, 128, 128, 0.3);
+    }
+    
+    [data-testid="stChatInput"] input {
+        font-weight: 400;
+    }
+    
+    /* Sidebar styling */
+    .css-1d391kg, [data-testid="stSidebar"] {
+        font-weight: 400;
+    }
+    
+    /* Button styling */
+    .stButton button {
+        font-weight: 500;
     }
     
     /* Mobile specific fixes */
@@ -76,7 +110,7 @@ st.markdown("""
         }
     }
 </style>
-""",unsafe_allow_html = True)
+""", unsafe_allow_html=True)
 
 # Initialize session state
 if "messages" not in st.session_state:
