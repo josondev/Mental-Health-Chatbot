@@ -29,15 +29,7 @@ st.markdown("""
         max-width: 100%;
         padding: 1rem;
     }
-    
-    /* Fix chat message width */
-    .stChatMessage {
-        background-color: black;
-        border-radius: 10px;
-        padding: 1rem;
-        margin: 0.5rem 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+
 </style>
 """,unsafe_allow_html = True)
 
