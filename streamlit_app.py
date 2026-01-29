@@ -29,7 +29,13 @@ st.markdown("""
         max-width: 100%;
         padding: 1rem;
     }
+    @media (prefers-color-scheme: dark) {
+  .stChatMessage { background: #0b0b0b; color: #f7fafc; }
+}
 
+@media (prefers-color-scheme: light) {
+  .stChatMessage { background: #ffffff; color: #111827; }
+}
 </style>
 """,unsafe_allow_html = True)
 
