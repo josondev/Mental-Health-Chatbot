@@ -36,7 +36,6 @@ st.markdown("""
         border-radius: 10px;
         padding: 1rem;
         margin: 0.5rem 0;
-        color: "white"
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 </style>
