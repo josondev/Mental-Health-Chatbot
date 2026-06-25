@@ -1,1 +1,18 @@
-.streamlit/secrets.toml
+# Environment variables and secrets
+.env
+**/.env
+.env.*
+**/.env.*
+
+# Allow safe example files
+!.env.example
+!**/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Evaluation-generated files
+evaluation/rag_predictions.jsonl
+evaluation/rag_eval_results.json
+evaluation/rag_eval_results_fixed.json

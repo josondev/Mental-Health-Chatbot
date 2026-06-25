@@ -1,5 +1,6 @@
 #doing all the imports here 
 import os
+import hashlib
 from langchain_huggingface import HuggingFaceEmbeddings
 from pinecone import Pinecone,ServerlessSpec,PineconeApiException
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -44,7 +45,7 @@ base_retriever=vectorstore.as_retriever(
 
 ##initialising the llm for the chat model
 llm=ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash-001",temperature=0.1,
+    model="gemini-3-flash-preview",temperature=0.1,
     max_tokens=1024,
     api_key=os.getenv("GOOGLE_API_KEY"),
     streaming=True 
@@ -133,11 +134,92 @@ def ask_question_streamed(user_question, current_chat_history):
     current_chat_history.append(AIMessage(content=full_ai_response))
     return full_ai_response
 
-flag=True
-while(flag):
-    user_input=input("Ask Any Question related to Mental Health:")
-    if user_input.lower() in ["exit", "quit", "stop"]:
-        print("Exiting the chat. Goodbye!")
-        flag=False
-    else:
-        ai_response = ask_question_streamed(user_input, chat_history)
+
+
+def get_document_id(document):
+    """
+    Use an existing document ID when available.
+    Otherwise generate a stable ID from document text.
+    """
+
+    metadata = document.metadata or {}
+
+    existing_id = (
+        metadata.get("doc_id")
+        or metadata.get("document_id")
+        or metadata.get("id")
+        or metadata.get("source")
+    )
+
+    if existing_id:
+        return str(existing_id)
+
+    text = document.page_content or ""
+
+    return hashlib.sha1(
+        text.encode("utf-8")
+    ).hexdigest()[:12]
+
+
+def ask_question_for_evaluation(
+    user_question,
+    current_chat_history=None,
+):
+    """
+    Non-streaming chatbot call for evaluation.
+
+    Returns:
+        answer
+        retrieved documents
+        retrieved document IDs
+    """
+
+    if current_chat_history is None:
+        current_chat_history = []
+
+    result = rag_chain.invoke({
+        "input": user_question,
+        "chat_history": current_chat_history,
+    })
+
+    answer = result.get("answer", "")
+    documents = result.get("context", [])
+
+    retrieved_documents = []
+
+    for document in documents:
+        retrieved_documents.append({
+            "doc_id": get_document_id(document),
+            "text": document.page_content,
+            "metadata": document.metadata or {},
+        })
+
+    return {
+        "answer": answer,
+        "documents": retrieved_documents,
+        "retrieved_doc_ids": [
+            document["doc_id"]
+            for document in retrieved_documents
+        ],
+    }
+
+def run_cli():
+    chat_history = []
+
+    while True:
+        user_input = input(
+            "Ask Any Question related to Mental Health: "
+        )
+
+        if user_input.lower() in ["exit", "quit", "stop"]:
+            print("Exiting the chat. Goodbye!")
+            break
+
+        ask_question_streamed(
+            user_input,
+            chat_history,
+        )
+
+
+if __name__ == "__main__":
+    run_cli()
